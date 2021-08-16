@@ -6,7 +6,9 @@
         <entry key="app/src/main/res/drawable/list_item_font_primary.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/list_item_font_secondary.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.10054347826086957" />
+        <entry key="app/src/main/res/layout/empty_time_zone_item.xml" value="0.1" />
         <entry key="app/src/main/res/layout/location_dropdown_item.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/time_zone_item.xml" value="0.1" />
       </map>
     </option>
   </component>

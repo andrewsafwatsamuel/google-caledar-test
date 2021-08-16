@@ -41,10 +41,10 @@ import android.provider.CalendarContract.CalendarCache
 import android.text.TextUtils
 import android.text.format.Time
 import com.android.calendar.alerts.AlertReceiver
-import com.android.timezonepicker.TimeZoneInfo
-import com.android.timezonepicker.TimeZonePickerDialog
-import com.android.timezonepicker.TimeZonePickerDialog.OnTimeZoneSetListener
-import com.android.timezonepicker.TimeZonePickerUtils
+import com.android.calendar.timezonepicker.TimeZoneInfo
+import com.android.calendar.timezonepicker.TimeZonePickerDialog
+import com.android.calendar.timezonepicker.TimeZonePickerDialog.OnTimeZoneSetListener
+import com.android.calendar.timezonepicker.TimeZonePickerUtils
 
 class GeneralPreferences : PreferenceFragment(), OnSharedPreferenceChangeListener,
         OnPreferenceChangeListener, OnTimeZoneSetListener {
@@ -114,7 +114,7 @@ class GeneralPreferences : PreferenceFragment(), OnSharedPreferenceChangeListene
             mTzPickerUtils = TimeZonePickerUtils(getActivity())
         }
         val timezoneName: CharSequence? = mTzPickerUtils?.getGmtDisplayName(getActivity(),
-                mTimeZoneId, System.currentTimeMillis(), false)
+                mTimeZoneId, System.currentTimeMillis())//there was a boolean here with false value
         mHomeTZ?.setSummary(timezoneName ?: mTimeZoneId)
         val tzpd: TimeZonePickerDialog = activity.getFragmentManager()
                 .findFragmentByTag(FRAG_TAG_TIME_ZONE_PICKER) as TimeZonePickerDialog
@@ -298,7 +298,7 @@ class GeneralPreferences : PreferenceFragment(), OnSharedPreferenceChangeListene
             mTzPickerUtils = TimeZonePickerUtils(getActivity())
         }
         val timezoneName: CharSequence? = mTzPickerUtils?.getGmtDisplayName(
-                getActivity(), tzi.mTzId, System.currentTimeMillis(), false)
+                getActivity(), tzi.mTzId, System.currentTimeMillis()) //there was a boolean here with false value
         mHomeTZ?.setSummary(timezoneName)
         Utils.setTimeZone(getActivity(), tzi.mTzId)
     }
