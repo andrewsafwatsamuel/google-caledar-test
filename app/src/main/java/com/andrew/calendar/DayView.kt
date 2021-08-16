@@ -2302,7 +2302,7 @@ class DayView(
         // event, if any.
         var startPosition = -1
         if (mPrevSelectedEvent != null && mPrevSelectedEvent!!.drawAsAllday()) {
-            startPosition = mPrevSelectedEvent?.getColumn() as Int
+            startPosition = mPrevSelectedEvent?.getColumn()?.toInt() ?: 0
         }
         var maxPosition = -1
         var startEvent: Event? = null
@@ -2757,7 +2757,7 @@ class DayView(
                 mAccessibilityMgr?.interrupt()
             }
             mSelectionMode = SELECTION_HIDDEN
-            var yLocation = ((mSelectedEvent!!.top + mSelectedEvent!!.bottom) / 2) as Int
+            var yLocation = ((mSelectedEvent!!.top + mSelectedEvent!!.bottom) / 2).toInt()
             // Y location is affected by the position of the event in the scrolling
             // view (mViewStartY) and the presence of all day events (mFirstCell)
             if (!mSelectedEvent!!.allDay) {

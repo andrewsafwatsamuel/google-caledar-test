@@ -74,10 +74,10 @@ class EventGeometry {
         // ending in the previous cell so that we don't cross the border
         // between hours.
         if (endHour * 60 == endTime) endHour -= 1
-        event.top = top as Float
+        event.top = top.toFloat()
         event.top += (startTime * cellMinuteHeight).toInt()
         event.top += startHour * mHourGap
-        event.bottom = top as Float
+        event.bottom = top.toFloat()
         event.bottom += (endTime * cellMinuteHeight).toInt()
         event.bottom += endHour * mHourGap - 1
 
@@ -126,12 +126,12 @@ class EventGeometry {
             if (y < top) {
                 // the upper right corner
                 val dy = top - y
-                return (Math.sqrt(dx as Double * dx + dy as Double * dy)) as Float
+                return (Math.sqrt(dx.toDouble() * dx + dy.toDouble() * dy)).toFloat()
             }
             if (y > bottom) {
                 // the lower right corner
                 val dy = y - bottom
-                return (Math.sqrt(dx as Double * dx + dy as Double * dy)) as Float
+                return (Math.sqrt(dx.toDouble() * dx + dy.toDouble() * dy)).toFloat()
             }
             // x,y is to the right of the event rectangle
             return dx
@@ -141,12 +141,12 @@ class EventGeometry {
         if (y < top) {
             // the upper left corner
             val dy = top - y
-            return (Math.sqrt(dx as Double * dx + dy as Double * dy)) as Float
+            return (Math.sqrt(dx.toDouble() * dx + dy.toDouble() * dy)).toFloat()
         }
         if (y > bottom) {
             // the lower left corner
             val dy = y - bottom
-            return (Math.sqrt(dx as Double * dx + dy as Double * dy)) as Float
+            return (Math.sqrt(dx.toDouble() * dx + dy.toDouble() * dy)).toFloat()
         }
         // x,y is to the left of the event rectangle
         return dx

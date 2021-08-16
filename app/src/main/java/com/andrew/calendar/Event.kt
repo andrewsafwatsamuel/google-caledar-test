@@ -324,13 +324,9 @@ class Event : Cloneable {
             e.hasAlarm = cEvents.getInt(PROJECTION_HAS_ALARM_INDEX) !== 0
 
             // Check if this is a repeating event
-            val rrule: String = cEvents.getString(PROJECTION_RRULE_INDEX)
-            val rdate: String = cEvents.getString(PROJECTION_RDATE_INDEX)
-            if (!TextUtils.isEmpty(rrule) || !TextUtils.isEmpty(rdate)) {
-                e.isRepeating = true
-            } else {
-                e.isRepeating = false
-            }
+            val rrule: String? = cEvents.getString(PROJECTION_RRULE_INDEX)
+            val rdate: String? = cEvents.getString(PROJECTION_RDATE_INDEX)
+            e.isRepeating = !rrule.isNullOrEmpty() || !rdate.isNullOrEmpty()
             e.selfAttendeeStatus = cEvents.getInt(PROJECTION_SELF_ATTENDEE_STATUS_INDEX)
             return e
         }
