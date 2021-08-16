@@ -18,7 +18,7 @@
 */
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-        package="com.android.calendar"
+        package="com.andrew.calendar"
         android:sharedUserLabel="@string/app_label">
 
     <!--
@@ -45,7 +45,7 @@
             android:label="@string/app_label" android:icon="@mipmap/ic_launcher_calendar"
             android:taskAffinity="android.task.calendar"
             android:hardwareAccelerated="true"
-            android:backupAgent="com.android.calendar.CalendarBackupAgent"
+            android:backupAgent="com.andrew.calendar.CalendarBackupAgent"
             android:requiredAccountType="*"
             android:usesCleartextTraffic="false" >
 
@@ -53,7 +53,7 @@
                 android:value="AEdPqrEAAAAIM256oVOGnuSel5QKDpL8je_T65ZI8rFnDinssA" />
 
         <activity
-            android:name="AllInOneActivity"
+            android:name="com.andrew.calendar.AllInOneActivity"
             android:theme="@style/CalendarTheme.WithActionBar"
             android:launchMode="singleTask"
             android:windowSoftInputMode="adjustPan"
@@ -68,18 +68,18 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <data android:mimeType="time/epoch" />
-                <data android:host="com.android.calendar" />
+                <data android:host="com.andrew.calendar" />
                 <data android:scheme="content"/>
             </intent-filter>
         </activity>
 
         <activity-alias android:name="LaunchActivity"
-            android:targetActivity=".AllInOneActivity"
+            android:targetActivity="com.andrew.calendar.AllInOneActivity"
             android:exported="true">
         </activity-alias>
 
         <activity android:name="EventInfoActivity"
-            android:parentActivityName="com.android.calendar.AllInOneActivity"
+            android:parentActivityName="com.andrew.calendar.AllInOneActivity"
             android:theme="@style/CalendarTheme.WithActionBar"
             android:exported="true">
             <intent-filter>
@@ -92,7 +92,7 @@
                 <data android:mimeType="vnd.android.cursor.item/event" />
             </intent-filter>
             <meta-data android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.android.calendar.AllInOneActivity" />
+                android:value="com.andrew.calendar.AllInOneActivity" />
         </activity>
 
         <activity android:name=".event.EditEventActivity"
@@ -156,7 +156,7 @@
             <intent-filter>
                 <action android:name="android.intent.action.PROVIDER_CHANGED"/>
                 <data android:scheme="content"/>
-                <data android:host="com.android.calendar"/>
+                <data android:host="com.andrew.calendar"/>
             </intent-filter>
         </receiver>
 
@@ -188,7 +188,7 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-                <action android:name="com.android.calendar.APPWIDGET_UPDATE" />
+                <action android:name="com.andrew.calendar.APPWIDGET_UPDATE" />
             </intent-filter>
             <meta-data android:name="android.appwidget.provider" android:resource="@xml/appwidget_info" />
         </receiver>
@@ -204,12 +204,12 @@
             <intent-filter>
                 <action android:name="android.intent.action.PROVIDER_CHANGED"/>
                 <data android:scheme="content"/>
-                <data android:host="com.android.calendar"/>
+                <data android:host="com.andrew.calendar"/>
             </intent-filter>
             <intent-filter>
-                <action android:name="com.android.calendar.APPWIDGET_SCHEDULED_UPDATE"/>
+                <action android:name="com.andrew.calendar.APPWIDGET_SCHEDULED_UPDATE"/>
                 <data android:scheme="content"/>
-                <data android:host="com.android.calendar"/>
+                <data android:host="com.andrew.calendar"/>
                 <data android:mimeType="vnd.android.data/update" />
             </intent-filter>
         </receiver>
